@@ -1,0 +1,30 @@
+<div class="contenedor">
+  
+  <img 
+  src="../assets/img/imagen-criptos.png" 
+  alt="imagen criptos"
+  class="imagen"
+  />
+  
+  <div>
+    <h1 class="heading">{{title}}</h1>
+    <app-formulario
+      (selectedCoins)="getCoins($event)"
+    ></app-formulario>
+  </div>
+
+
+  <div *ngIf="cargando && !cotizacion; then spinner else datos"></div>
+
+  <ng-template #datos >
+    <app-cotizacion
+      *ngIf="cotizacion"
+      [datosCotizacion]="cotizacion"
+    ></app-cotizacion>
+  </ng-template>
+
+  <ng-template #spinner>
+    <app-spinner></app-spinner>
+  </ng-template>
+
+</div>

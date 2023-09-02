@@ -1,0 +1,20 @@
+<app-error *ngIf="message.error"></app-error>
+<form (submit)="onSubmit($event)">
+    <app-select-monedas 
+        [nameLabel]="nameLabel"
+        [monedas]="options"
+        (stateMoneySelect)="getMoneySelected($event)"
+    ></app-select-monedas>    
+    
+    <app-select-monedas 
+        [nameLabel]="nameLabelCrypto"
+        [monedas]="optionsCrypto"
+        (stateMoneySelect)="getCryptoSelected($event)"
+    ></app-select-monedas>
+
+    <input 
+        type="submit" 
+        value="Cotizar" 
+        class="btn-submit"
+    />
+</form>

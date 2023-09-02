@@ -1,0 +1,12 @@
+<label>{{nameLabel}}</label>
+<select
+    name="money"
+    [(ngModel)]="moneySelect"
+    (change)="sendOptionSelected()"
+    >
+    <option value="">---Seleccione---</option>
+    <option 
+    [value]="moneda.id"
+    *ngFor="let moneda of monedas"
+    >{{moneda.name}}</option>
+</select>
